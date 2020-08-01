@@ -1,10 +1,10 @@
-var connection = require('./connection');
+var connection = require('../../Config/connection');
 
 module.exports = function(app) {
-    connection.connect();
+    var con = connection();
 
     app.get('/noticias', function(req, res) {
-        connection.query('SELECT * FROM noticias;', function(error, result) {
+        con.query('SELECT * FROM noticias;', function(error, result) {
             if (error) return console.log(error);
             res.render('noticias/noticias', {noticias : result});
         });
