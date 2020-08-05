@@ -1,7 +1,6 @@
 var mysql = require('mysql');
 
 var conMySQL = function() {
-    console.log('Requisitado');
     return connection = mysql.createConnection({
         host : 'localhost',
         user : 'root',
