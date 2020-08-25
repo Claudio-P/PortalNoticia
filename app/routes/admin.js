@@ -5,6 +5,13 @@ module.exports = function(app) {
 
     app.post('/noticias/salvar', function(req, res) {
         var noticias = req.body;
-        res.send(noticias);
+
+        var con = app.config.connection();
+        var noticiasModel = new app.app.models.NoticiasDAO(con);
+
+        noticiasModel.salvarNoticia(noticias, function(error, result) {
+            if (error) return console.log(error);
+            res.redirect('/noticias');
+        });
     });
 };
