@@ -6,6 +6,8 @@ module.exports = function(app) {
     app.post('/noticias/salvar', function(req, res) {
         var noticias = req.body;
 
+        
+
         var con = app.config.connection();
         var noticiasModel = new app.app.models.NoticiasDAO(con);
 
