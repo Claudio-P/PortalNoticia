@@ -6,7 +6,7 @@ module.exports = function(app) {
 
         noticiasModel.getNoticia(function(error, result) {
             if (error) return console.log(error);
-            res.render('noticias/noticia', {noticia : result});
+            res.render('noticias/noticia', { noticia : result });
         });
     });
 };
